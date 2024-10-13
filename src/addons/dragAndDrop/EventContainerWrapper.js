@@ -217,6 +217,8 @@ class EventContainerWrapper extends React.Component {
       const item = this.context.draggable.dragFromOutsideItem
         ? this.context.draggable.dragFromOutsideItem()
         : null
+
+      console.log('dragOverFromOutside', item)
       if (!item) return
       const bounds = getBoundsForNode(node)
       if (!pointInColumn(bounds, point)) return this.reset()
@@ -270,6 +272,7 @@ class EventContainerWrapper extends React.Component {
   }
 
   renderContent() {
+    console.log('render content')
     const { children, accessors, components, getters, slotMetrics, localizer } =
       this.props
 
