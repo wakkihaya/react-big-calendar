@@ -135,6 +135,7 @@ class EventContainerWrapper extends React.Component {
     )
     const end = slotMetrics.nextSlot(start)
     const event = this.context.draggable.dragFromOutsideItem()
+    console.log(event, start, end)
     this.update(event, slotMetrics.getRange(start, end, false, true))
   }
 
@@ -213,7 +214,9 @@ class EventContainerWrapper extends React.Component {
     })
 
     selector.on('dragOverFromOutside', (point) => {
-      const item = this.context.draggable.dragFromOutsideItem ? this.context.draggable.dragFromOutsideItem() : null
+      const item = this.context.draggable.dragFromOutsideItem
+        ? this.context.draggable.dragFromOutsideItem()
+        : null
       if (!item) return
       const bounds = getBoundsForNode(node)
       if (!pointInColumn(bounds, point)) return this.reset()
